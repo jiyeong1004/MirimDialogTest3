@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +36,24 @@ public class MainActivity extends AppCompatActivity {
                     selectedId = R.drawable.dog;
                     selectedTitle = radioDog.getText().toString();
                     break;
+                case R.id.radio_cat:
+                    selectedId = R.drawable.dog;
+                    selectedTitle = radioCat.getText().toString();
+                    break;
+                case R.id.radio_rabbit:
+                    selectedId = R.drawable.dog;
+                    selectedTitle = radioRabbit.getText().toString();
+                    break;
+                case R.id.radio_horse:
+                    selectedId = R.drawable.dog;
+                    selectedTitle = radioHores.getText().toString();
+                    break;
             }
+            AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+            dlg.setTitle(selectedTitle);
+            dlg.setView(dialogView);
+            dlg.setPositiveButton("닫기", null);
+            dlg.show();
         }
-    }
+    };
 }

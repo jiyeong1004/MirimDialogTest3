@@ -36,7 +36,7 @@
             android:id="@+id/radio_horse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="말말"/>
+            android:text="말"/>
 
     </RadioGroup>
 
