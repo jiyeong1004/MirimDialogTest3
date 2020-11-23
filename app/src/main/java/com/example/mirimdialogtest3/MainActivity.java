@@ -42,20 +42,21 @@ public class MainActivity extends AppCompatActivity {
                     selectedTitle = radioDog.getText().toString();
                     break;
                 case R.id.radio_cat:
-                    selectedId = R.drawable.dog;
+                    selectedId = R.drawable.cat;
                     selectedTitle = radioCat.getText().toString();
                     break;
                 case R.id.radio_rabbit:
-                    selectedId = R.drawable.dog;
+                    selectedId = R.drawable.rabbit;
                     selectedTitle = radioRabbit.getText().toString();
                     break;
                 case R.id.radio_horse:
-                    selectedId = R.drawable.dog;
+                    selectedId = R.drawable.horse;
                     selectedTitle = radioHorse.getText().toString();
                     break;
             }
             AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
             dlg.setTitle(selectedTitle);
+            dlgImg.setImageResource(selectedId);
             dlg.setView(dialogView);
             dlg.setPositiveButton("닫기", null);
             dlg.show();
