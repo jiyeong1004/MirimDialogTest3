@@ -3,35 +3,40 @@ package com.example.mirimdialogtest3;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    Button showImg;
+    RadioGroup rg;
+    RadioButton radioDog, radioCat, radioRabbit, radioHorse;
     View dialogView;
+    ImageView dlgImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        showImg = findViewById(R.id.btn_showImg);
-        showImg.setOnClickListener(btnShowImgListener);
+        rg = findViewById(R.id.rg);
+        radioDog = findViewById(R.id.radio_dog);
+        radioCat = findViewById(R.id.radio_cat);
+        radioRabbit = findViewById(R.id.radio_rabbit);
+        radioHorse = findViewById(R.id.radio_horse);
+        Button btnShow = findViewById(R.id.btn_show);
+        btnShow.setOnClickListener(btnShowListener);
     }
-    View.OnClickListener btnShowImgListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            dialogView = View.inflate(MainActivity.this, R.layout.dialog1, null);
-        }
-    };
 
     View.OnClickListener btnShowListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            dialogView = View.inflate(MainActivity.this, R.layout.dialog, null);
+            dialogView = View.inflate(MainActivity.this, R.layout.dialog1, null);
             dlgImg = dialogView.findViewById(R.id.img);
-            int selectedTitle = "";
-            switch (rg.getChecedRadioButtonId()){
+            int selectedId = 0;
+            String selectedTitle = "";
+            switch (rg.getCheckedRadioButtonId()){
                 case R.id.radio_dog:
                     selectedId = R.drawable.dog;
                     selectedTitle = radioDog.getText().toString();
@@ -46,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.radio_horse:
                     selectedId = R.drawable.dog;
-                    selectedTitle = radioHores.getText().toString();
+                    selectedTitle = radioHorse.getText().toString();
                     break;
             }
             AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
